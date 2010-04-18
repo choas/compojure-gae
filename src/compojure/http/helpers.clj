@@ -10,15 +10,14 @@
   "Helper functions for things like redirection, serving files, 404s, etc."
   (:use compojure.encodings
         compojure.str-utils
-        clojure.contrib.def
-        clojure.contrib.str-utils
-        clojure.contrib.duck-streams)
+        clojure.contrib.def)
+  (:require (clojure.contrib [string :as string]))
   (:import java.io.File))
 
 (defn- encode-cookie
   "Encode sequence of key/value pairs a cookie."
   [name value attrs]
-  (str-join "; "
+  (string/join "; "
     (cons (str (urlencode name) "=" (urlencode value))
           (for [[key val] attrs] (str* key "=" val)))))
 

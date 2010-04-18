@@ -9,8 +9,7 @@
 (ns compojure.crypto
   "Functions for cryptographically signing, verifying and encrypting data."
   (:use compojure.encodings
-        clojure.contrib.def
-        clojure.contrib.java-utils)
+        clojure.contrib.def)
   (:import java.security.SecureRandom
            [javax.crypto Cipher KeyGenerator Mac]
            [javax.crypto.spec SecretKeySpec IvParameterSpec]

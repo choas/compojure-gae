@@ -11,9 +11,9 @@
   (:use compojure.control
         compojure.encodings
         compojure.map-utils
-        compojure.str-utils
-        clojure.contrib.duck-streams
-        clojure.contrib.str-utils)
+        compojure.str-utils)
+  (:require (clojure.contrib [string :as string]
+              [io :as io]))
   (:import java.net.URLDecoder
            java.io.InputStreamReader))
 
@@ -29,7 +29,7 @@
         param-map))
     {}
     (remove blank?
-      (re-split separator param-string))))
+      (string/split separator param-string))))
 
 (defn parse-query-params
   "Parse parameters from the query string."
@@ -38,16 +38,16 @@
     (parse-params query #"&")))
 
 (defn get-character-encoding
-  "Get the character encoding, or use the default from duck-streams."
+  "Get the character encoding, or use the default from c.c.io."
   [request]
-  (or (request :character-encoding) *default-encoding*))
+  (or (request :character-encoding) io/*default-encoding*))
 
 (defn- slurp-body
   "Slurp the request body into a string."
   [request]
   (let [encoding (get-character-encoding request)]
     (if-let [body (request :body)]
-      (slurp* (InputStreamReader. body encoding)))))
+      (io/slurp* (InputStreamReader. body encoding)))))
 
 (defn urlencoded-form?
   "Does a request have a urlencoded form?"

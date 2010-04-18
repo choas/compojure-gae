@@ -1,4 +1,4 @@
-(ns test.helpers
+(ns helpers
   (:import java.io.ByteArrayInputStream)
   (:import java.io.File))
 

@@ -9,7 +9,7 @@
 (ns compojure.encodings
   "Functions for encoding data."
   (:use compojure.str-utils
-        clojure.contrib.duck-streams)
+        clojure.contrib.io)
   (:import [java.net URLEncoder URLDecoder]
            [org.apache.commons.codec.binary Base64 Hex]))
 
