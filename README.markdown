@@ -1,9 +1,25 @@
-Compojure is an open source web framework for the [Clojure](http://clojure.org)
-programming language. It emphasizes a thin I/O layer and a functional approach
-to web development.
+# compojure-gae 
+## compojure for google app engine - out of the box
 
-Compojure is still in active development. The current stable branch has been
-released as version 0.3.1.
+forked [cemerick / compojure](http://github.com/cemerick/compojure) (April 18th 2010); a compojure 0.3.3 
+
+Compojure is an open source web framework for the [Clojure](http://clojure.org) programming language. It emphasizes a thin I/O layer and a functional approach to web development.
+
+#### What differs from the forked version?
+The forked version includes multipart with FileUpload. This causes on google app engine an error: java.rmi.server.UID is a restricted class.
+
+Alternatively, you can use a "normal" compojure and define the compojure.http usage more specific:
+    (:use [compojure.http servlet routes helpers])
+
+#### What happened with build.xml?
+"And now I’m ready for anything and everything – including your ants." -- Leiningen Versus the Ants by Carl Stephenson
+
+Leiningen can do anything and everything:
+    lein jar
+
+#### Why not compojure 0.4.x?
+Compojure 0.4.x uses ring as library and therefore another different namespace is required.
+
 
 Sample Code
 -----------
@@ -29,7 +45,7 @@ To run Compojure, you'll need:
 * The [Clojure](http://clojure.org) programming language
 * The [Clojure-Contrib](http://code.google.com/p/clojure-contrib/) library
 * A Java servlet container like [Jetty](http://www.mortbay.org/jetty/)
-* Apache Commons [FileUpload](http://commons.apache.org/fileupload),
+* Apache Commons <strike>[FileUpload](http://commons.apache.org/fileupload)</strike>,
   [IO](http://commons.apache.org/io) and
   [Codec](http://commons.apache.org/codec).
 
