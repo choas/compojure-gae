@@ -17,6 +17,12 @@ Alternatively, you can use a "normal" compojure and define the compojure.http us
 Leiningen can do anything and everything:
     lein jar
 
+#### Yes, fine, but how can I use it?
+Just add this in your project.clj file under :dependencies
+    [compojure-gae "0.3.3"]
+
+The jar file is hosted by [Clojars.org](http://clojars.org/compojure-gae).
+
 #### Why not compojure 0.4.x?
 Compojure 0.4.x uses ring as library and therefore another different namespace is required.
 
@@ -45,8 +51,7 @@ To run Compojure, you'll need:
 * The [Clojure](http://clojure.org) programming language
 * The [Clojure-Contrib](http://code.google.com/p/clojure-contrib/) library
 * A Java servlet container like [Jetty](http://www.mortbay.org/jetty/)
-* Apache Commons <strike>[FileUpload](http://commons.apache.org/fileupload)</strike>,
-  [IO](http://commons.apache.org/io) and
+* Apache Commons [IO](http://commons.apache.org/io) and
   [Codec](http://commons.apache.org/codec).
 
 These dependencies can be downloaded automatically using:
@@ -76,3 +81,6 @@ Eric Lavigne has written a series of excellent tutorials on Compojure:
 * [Install Compojure on a Slicehost VPS](http://ericlavigne.wordpress.com/2008/12/18/compojure-on-a-slicehost-vps/)
 * [Using PostgreSQL with Compojure](http://ericlavigne.wordpress.com/2008/12/28/using-postgresql-with-compojure/)
 * [Compojure security: authentication and authorization](http://ericlavigne.wordpress.com/2009/01/04/compojure-security-authentication-and-authorization/)
+
+John Hume has written about: 
+* [Clojure on Google AppEngine](http://elhumidor.blogspot.com/2009/04/clojure-on-google-appengine.html)
