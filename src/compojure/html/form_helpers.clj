@@ -138,7 +138,7 @@
   (let [method-str (upcase-name method)]
     (into []
       (concat
-        (if (seq-contains? [:get :post] method)
+        (if (contains? [:get :post] method)
           [:form {:method method-str :action action}]
           [:form {:method "POST" :action action}
            (hidden-field "_method" method-str)])
