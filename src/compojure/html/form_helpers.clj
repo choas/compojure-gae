@@ -11,8 +11,7 @@
   (:use compojure.html.gen
         compojure.control
         compojure.str-utils
-        clojure.contrib.def
-        clojure.contrib.seq))
+        clojure.contrib.def))
 
 ;; Global parameters for easy default values
 

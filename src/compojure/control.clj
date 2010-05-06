@@ -7,8 +7,7 @@
 ;; this software.
 
 (ns compojure.control
-  "Various macros for controling program flow."
-  (:use clojure.contrib.seq))
+  "Various macros for controling program flow.")
 
 (defmacro return
   "A do block that will always return the argument 'x'."
